@@ -1,5 +1,6 @@
 const { useState } = React;
 
+
 // Adatok betöltése a forrásfájl alapján (példák)
 const initialSutik = [
     { id: 1, nev: "Süni", tipus: "vegyes", dijazott: 0 },
@@ -8,6 +9,9 @@ const initialSutik = [
     { id: 66, nev: "Franciakrémes", tipus: "krémes", dijazott: 0 },
     { id: 139, nev: "Mákos guba", tipus: "torta", dijazott: 0 }
 ];
+
+
+
 
 function App() {
     const [sutik, setSutik] = useState(initialSutik);
@@ -48,9 +52,15 @@ function App() {
 
     return (
         <div>
+        
+        <nav style={{ textAlign: 'left', padding: '10px 0' }}>
+            <a href="../index.html" className="btn-back">
+                &larr; Vissza a főoldalra
+            </a>
+        </nav>
+
             <h1>🍰 Sütemény Adminisztráció</h1>
 
-            {/* Űrlap doboz pirosas kerettel */}
             <div className="form-box">
                 <form className="suti-form" onSubmit={saveSuti}>
                     <div className="form-group">
@@ -135,17 +145,3 @@ function App() {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
-return (
-    <div>
-        {/* Vissza gomb az oldal tetejére */}
-        <div style={{ textAlign: 'left', marginBottom: '20px' }}>
-            <a href="../index.html" className="btn-back">
-                ← Vissza a főoldalra
-            </a>
-        </div>
-
-        <h1>Új Süti CRUD</h1>
-        
-        {/* ... (az űrlap és a táblázat többi része változatlan) */}
-    </div>
-);

@@ -3,7 +3,7 @@ h1{
     padding:25px;
     text-align: center;
     font-family:Arial, sans-serif;
-    background-image: url("macaron.jpg");
+    
 }
 
 .sutike-form { 
@@ -23,6 +23,7 @@ h1{
 } 
 body > table{ 
     width: 80%; 
+    background-image: url("macaron.jpg");
 } 
 table{ 
     border-collapse: collapse; 
