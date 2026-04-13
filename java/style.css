@@ -56,9 +56,11 @@ header {
 }
 
 header h1 {
-    color: #a349a4;
-    font-size: 2.5rem;
-    margin: 0;
+    color: #ae30a4; 
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 /* Form kártya */
