@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title> 
+     Új Sütike  
+ 
+    </title> 
+    <link rel="stylesheet" href="style.css"> 
+</head> 
+<body> 
+    <h1>Új Sütike ÁR CRUD </h1> 
+    <hr> 
+    <div class="sutike-form"> 
+        <form onsubmit="event.preventDefault();onFormSubmit();"> 
+            <div> 
+   
+                <label>Sütike ÁrID*</label><label class="validation-error hide" 
+                  id="fullNameValidationError">EZ A MEZŐ KÖTELEZŐ.</label> 
+                <input type="text" name="arid" id="arid"> 
+            </div> 
+            <div> 
+                <label>Sütike ID</label> 
+                <input type="text" name="id" id="id"> 
+            </div> 
+            <div> 
+                <label>Sütike Ára</label> 
+                <input type="text" name="ar" id="ar"> 
+            </div> 
+            <div> 
+                <label>Sütike Egység (pl. db, szelet)</label> 
+                <input type="text" name="egyseg" id="egyseg"> 
+            </div> 
+            <div  class="form-action-buttons"> 
+                <input type="submit" value="Hozzáad"> 
+            </div> 
+        </form> 
+    </div> 
+    <br/> 
+    <div class = "sutike-table"> 
+            <table class="list" id="sutikelist"> 
+                <thead> 
+                    
+                    <tr> 
+                        <th>Sütike Ár ID</th> 
+                        <th>Sütike ID</th> 
+                        <th>Sütike Ára</th> 
+                        <th>Sütike Egység </th> 
+                        <th>Műveletek</th> </tr>
+                    </tr> 
+                    <span class="options">
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-trash-alt"></i>
+                </span>
+                </thead> 
+                <tbody> 
+ 
+                </tbody> 
+            </table> 
+
+ 
+    </div> 
+    <script src="main.js"></script> 
+</body> 
+</html> 
