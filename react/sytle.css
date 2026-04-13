@@ -143,3 +143,21 @@ tr:hover {
     border-radius: 4px;
     cursor: pointer;
 }
+
+/* Vissza gomb stílusa */
+.btn-back {
+    display: inline-block;
+    text-decoration: none;
+    color: #ae30a4; /* A fejléc lila színe */
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 1px solid #ae30a4;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #ae30a4;
+    color: white;
+    box-shadow: 0 2px 8px rgba(174, 48, 164, 0.3);
+}

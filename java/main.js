@@ -92,3 +92,18 @@ function onDelete(index) {
 
 // Indítás
 betoltAdatok();
+
+return (
+    <div>
+        {/* Vissza gomb az oldal tetejére */}
+        <div style={{ textAlign: 'left', marginBottom: '20px' }}>
+            <a href="../index.html" className="btn-back">
+                ← Vissza a főoldalra
+            </a>
+        </div>
+
+        <h1>Új Süti CRUD</h1>
+        
+        {/* ... (az űrlap és a táblázat többi része változatlan) */}
+    </div>
+);
