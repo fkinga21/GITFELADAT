@@ -1,6 +1,6 @@
 let adatok = [];
 let editIndex = -1;
-
+const response = await fetch('ar.txt'); 
 // 1. BEOLVASÁS
 async function betoltAdatok() {
     try {
