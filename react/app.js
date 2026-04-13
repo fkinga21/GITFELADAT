@@ -6,8 +6,6 @@ const initialSutik = [
     { id: 10, nev: "Legényfogó", tipus: "torta", dijazott: -1 },
     { id: 20, nev: "Ribizlihabos-almás réteges", tipus: "különleges torta", dijazott: -1 },
     { id: 66, nev: "Franciakrémes", tipus: "krémes", dijazott: 0 },
-    { id: 80, nev: "Zserbó", tipus: "pite", dijazott: 0 },
-    { id: 135, nev: "Krémes", tipus: "krémes", dijazott: 0 },
     { id: 139, nev: "Mákos guba", tipus: "torta", dijazott: 0 }
 ];
 
@@ -49,41 +47,61 @@ function App() {
     };
 
     return (
-        <div className="container">
-            <h1>🍰 Sütemény Adminisztráció</h1>
+        <div>
+            <h1>Új Süti CRUD</h1>
 
-            <form className="suti-form" onSubmit={saveSuti}>
-                <input 
-                    name="nev" 
-                    placeholder="Sütemény neve" 
-                    value={currentSuti.nev} 
-                    onChange={handleInputChange} 
-                    required 
-                />
-                <input 
-                    name="tipus" 
-                    placeholder="Típus (pl. torta, pite)" 
-                    value={currentSuti.tipus} 
-                    onChange={handleInputChange} 
-                    required 
-                />
-                <input 
-                    type="number" 
-                    name="dijazott" 
-                    placeholder="Díj (0 vagy -1)" 
-                    value={currentSuti.dijazott} 
-                    onChange={handleInputChange} 
-                />
-                <button type="submit">{isEditing ? 'Frissítés' : 'Hozzáadás'}</button>
-                {isEditing && (
-                    <button className="btn-cancel" onClick={() => setIsEditing(false)}>Mégse</button>
-                )}
-            </form>
+            {/* Űrlap doboz pirosas kerettel */}
+            <div className="form-box">
+                <form className="suti-form" onSubmit={saveSuti}>
+                    <div className="form-group">
+                        <label>Sütemény Neve</label>
+                        <input 
+                            name="nev" 
+                            placeholder="Sütemény neve" 
+                            value={currentSuti.nev} 
+                            onChange={handleInputChange} 
+                            required 
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Típus</label>
+                        <input 
+                            name="tipus" 
+                            placeholder="Típus (pl. torta, pite)" 
+                            value={currentSuti.tipus} 
+                            onChange={handleInputChange} 
+                            required 
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Díj (0 vagy -1)</label>
+                        <input 
+                            type="number" 
+                            name="dijazott" 
+                            placeholder="Díj" 
+                            value={currentSuti.dijazott} 
+                            onChange={handleInputChange} 
+                        />
+                    </div>
+                    
+                    {/* Lila gomb */}
+                    <button type="submit" className="btn-primary">
+                        {isEditing ? 'Frissítés' : 'Hozzáadás'}
+                    </button>
+                    
+                    {isEditing && (
+                        <button type="button" className="btn-primary btn-cancel" onClick={() => { setIsEditing(false); setCurrentSuti({ id: null, nev: '', tipus: '', dijazott: 0 }); }}>
+                            Mégse
+                        </button>
+                    )}
+                </form>
+            </div>
 
+            {/* Táblázat halványlila fejléccel */}
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Sütemény ID</th>
                         <th>Név</th>
                         <th>Típus</th>
                         <th>Díjazott</th>
@@ -98,9 +116,7 @@ function App() {
                                 <td><strong>{s.nev}</strong></td>
                                 <td>{s.tipus}</td>
                                 <td>
-                                    {s.dijazott === -1 ? (
-                                        <span className="award">🏆 Díjazott</span>
-                                    ) : "Nem"}
+                                    {s.dijazott === -1 ? "🏆 Díjazott" : "Nem"}
                                 </td>
                                 <td className="actions">
                                     <button className="btn-edit" onClick={() => editRow(s)}>Szerkeszt</button>
@@ -109,7 +125,7 @@ function App() {
                             </tr>
                         ))
                     ) : (
-                        <tr><td colSpan="5" style={{textAlign: 'center'}}>Nincs adat a listában.</td></tr>
+                        <tr><td colSpan="5">Nincs adat a listában.</td></tr>
                     )}
                 </tbody>
             </table>
