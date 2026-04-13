@@ -1,0 +1,42 @@
+body{
+    background-color:#f4eaf5;
+    margin:0;
+    padding: 20px;
+}
+
+h1{
+    color:rgb(164, 36, 168);
+    padding:25px;
+    text-align: center;
+    font-family:Arial, sans-serif;
+}
+
+p{
+   font-size: 20px;
+}
+nav{
+    background-color: #f09dd0; 
+    color: rgb(164, 36, 168);
+    padding: 20px;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 6px;
+}
+
+aside{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+
+
+img {
+    border-radius: 8px;
+    width: 50%;
+}
+footer{
+    text-align: center;
+    margin-top: 20px;
+}
