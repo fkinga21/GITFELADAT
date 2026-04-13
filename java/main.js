@@ -1,33 +1,32 @@
 let adatok = [];
 let editIndex = -1;
 
-// 1. ADATOK BETÖLTÉSE
+// 1. BEOLVASÁS
 async function betoltAdatok() {
     try {
         const response = await fetch('ar.txt');
-        if (!response.ok) throw new Error("Nem találom az ar.txt-t!");
+        if (!response.ok) throw new Error("A fájl nem található!");
         const text = await response.text();
         
-        // Sorokra bontás és tisztítás (forrásmegjelölések nélkül)
-        const sorok = text.split('\n').filter(s => s.trim() !== "" && !s.includes("".toLowerCase().includes("id"))) ? 1 : 0;
+        // Sorokra bontás és tisztítás
+        const sorok = text.split('\n').filter(s => s.trim() )!== "" && !s.includes(".toLowerCase().includes"(id) ? 1 : 0);
 
         adatok = sorok.slice(startIndex).map(sor => {
             const oszlop = sor.trim().split(/\s+/);
             return {
-                arid: oszlop[0] || "",
-                id: oszlop[1] || "",
-                ar: oszlop[2] || "",
-                egyseg: oszlop.slice(3).join(" ") || ""
+                arid: oszlop[0],
+                id: oszlop[1],
+                ar: oszlop[2],
+                egyseg: oszlop.slice(3).join(" ")
             };
         });
-
         renderTable();
     } catch (err) {
-        console.error("Hiba történt:", err);
+        console.error("Hiba a betöltéskor:", err);
     }
 }
 
-// 2. TÁBLÁZAT KIRAJZOLÁSA
+// 2. MEGJELENÍTÉS
 function renderTable() {
     const tableBody = document.querySelector("#sutikelist tbody");
     if (!tableBody) return;
@@ -40,15 +39,29 @@ function renderTable() {
             <td>${item.ar}</td>
             <td>${item.egyseg}</td>
             <td>
-                <button type="button" onclick="onEdit(${index})">Módosítás</button>
-                <button type="button" onclick="onDelete(${index})">Törlés</button>
+                <button type="button" class="btn-edit" onclick="onEdit(${index})">Módosítás</button>
+                <button type="button" class="btn-delete" onclick="onDelete(${index})">Törlés</button>
             </td>
         </tr>`;
-        tableBody.innerHTML += row; // Fontos a += jel!
+        tableBody.innerHTML += row;
     });
 }
 
-// 3. HOZZÁADÁS / MENTÉS GOMB
+// 3. MÓDOSÍTÁS GOMB (Adatok betöltése)
+function onEdit(index) {
+    editIndex = index; 
+    const kijeloltSuti = adatok[index];
+
+    // Figyelj: kijeloltSuti-t kell írni mindenhol!
+    document.getElementById("arid").value = kijeloltSuti.arid;
+    document.getElementById("id").value = kijeloltSuti.id;
+    document.getElementById("ar").value = kijeloltSuti.ar;
+    document.getElementById("egyseg").value = kijeloltSuti.egyseg;
+
+    document.querySelector(".form-action-buttons input").value = "Módosítás mentése";
+}
+
+// 4. MENTÉS (Új vagy Frissítés)
 function onFormSubmit() {
     const formData = {
         arid: document.getElementById("arid").value,
@@ -58,40 +71,21 @@ function onFormSubmit() {
     };
 
     if (formData.arid === "") {
-        alert("Sütike ÁrID megadása kötelező!");
+        alert("Az ÁrID kötelező!");
         return;
     }
 
     if (editIndex === -1) {
         adatok.push(formData); // Új hozzáadása
     } else {
-        adatok[editIndex] = formData; // Módosítás mentése
+        adatok[editIndex] = formData; // Meglévő frissítése
         editIndex = -1;
-        document.querySelector(".form-action-buttons input").value = "Hozzáad";
+        const submitBtn = document.querySelector(".form-action-buttons input[type='submit']");
+        if (submitBtn) submitBtn.value = "Submit";
     }
 
     renderTable();
     resetForm();
-}
-
-// 4. MÓDOSÍTÁS INDÍTÁSA
-function onEdit(index) {
-    editIndex = index;
-    const kijelolt = adatok[index];
-    document.getElementById("arid").value = kijelolt.arid;
-    document.getElementById("id").value = kijelolt.id;
-    document.getElementById("ar").value = kijelolt.ar;
-    document.getElementById("egyseg").value = kijelolt.egyseg;
-
-    document.querySelector(".form-action-buttons input").value = "Módosítás mentése";
-}
-
-// 5. TÖRLÉS ÉS RESET
-function onDelete(index) {
-    if (confirm("Biztosan törlöd?")) {
-        adatok.splice(index, 1);
-        renderTable();
-    }
 }
 
 function resetForm() {
@@ -99,6 +93,14 @@ function resetForm() {
     document.getElementById("id").value = "";
     document.getElementById("ar").value = "";
     document.getElementById("egyseg").value = "";
+    editIndex = -1;
+}
+
+function onDelete(index) {
+    if (confirm('Biztosan törölni akarod?')) {
+        adatok.splice(index, 1);
+        renderTable();
+    }
 }
 
 // Indítás
