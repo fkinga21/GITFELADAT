@@ -14,10 +14,10 @@ async function betoltAdatok() {
         adatok = sorok.slice(startIndex).map(sor => {
             const oszlop = sor.trim().split(/\s+/);
             return {
-                arid: oszlop[0],
-                id: oszlop[1],
-                ar: oszlop[2],
-                egyseg: oszlop.slice(3).join(" ")
+                arid: oszlop[0] || "",
+                id: oszlop[1] || "",
+                ar: oszlop[2] || "",
+                egyseg: oszlop.slice(3).join(" ") || ""
             };
         });
         renderTable();
