@@ -4,12 +4,17 @@ const response = await fetch('ar.txt');
 // 1. BEOLVASÁS
 async function betoltAdatok() {
     try {
+        console.log("Megpróbálom betölteni az adatokat...");
         const response = await fetch('ar.txt');
-        if (!response.ok) throw new Error("A fájl nem található!");
-        const text = await response.text();
         
-        // Sorokra bontás és tisztítás
-        const sorok = text.split('\n').filter(s => s.trim() )!== "" && !s.includes(".toLowerCase().includes"(id) ? 1 : 0);
+        if (!response.ok) {
+            throw new Error(`Szerver hiba: ${response.status}. Ellenőrizd, hogy az ar.txt a java mappában van!`);
+        }
+
+        const text = await response.text();
+        console.log("Fájl beolvasva, adatok feldolgozása...");
+
+        const sorok = text.split('\n').filter(s => s.trim()) !== "" && !s.includes(".toLowerCase()".includes(id))? 1 : 0;
 
         adatok = sorok.slice(startIndex).map(sor => {
             const oszlop = sor.trim().split(/\s+/);
@@ -20,11 +25,16 @@ async function betoltAdatok() {
                 egyseg: oszlop.slice(3).join(" ")
             };
         });
+
+        console.log("Adatok betöltve:", adatok);
         renderTable();
     } catch (err) {
-        console.error("Hiba a betöltéskor:", err);
+        console.error("Hiba történt:", err.message);
+        // Kiírjuk a képernyőre is, ha hiba van
+        document.querySelector("#sutikelist tbody").innerHTML = `<tr><td colspan="5" style="color:red">Hiba: ${err.message}</td></tr>`;
     }
 }
+
 
 // 2. MEGJELENÍTÉS
 function renderTable() {
