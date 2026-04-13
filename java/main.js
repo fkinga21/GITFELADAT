@@ -1,30 +1,17 @@
-let adatok = [];
-let editIndex = -1;
+let priceData = [
+    { id: 1, sutiid: 32, ertek: 500, egyseg: "db" },
+    { id: 2, sutiid: 76, ertek: 10900, egyseg: "16 szeletes" },
+    { id: 3, sutiid: 106, ertek: 4300, egyseg: "8 szeletes" },
+    { id: 4, sutiid: 88, ertek: 300, egyseg: "db" },
+    { id: 5, sutiid: 116, ertek: 16200, egyseg: "24 szeletes" },
+    // ... ide jöhet a többi adat is az ar.txt-ből
+    { id: 208, sutiid: 89, ertek: 4700, egyseg: "8 szeletes" }
+];
 
-// 1. BEOLVASÁS
-async function betoltAdatok() {
-    try {
-        const response = await fetch('./ar.txt');
-        if (!response.ok) throw new Error("A fájl nem található!");
-        const text = await response.text();
-        
-        // Sorokra bontás és tisztítás
-        const sorok = text.split('\n').filter(s => s.trim() )!== "" && !s.includes(".toLowerCase().includes"("id")) ? 1 : 0;
-
-        adatok = sorok.slice(startIndex).map(sor => {
-            const oszlop = sor.trim().split(/\s+/);
-            return {
-                arid: oszlop[0] || "",
-                id: oszlop[1] || "",
-                ar: oszlop[2] || "",
-                egyseg: oszlop.slice(3).join(" ") || ""
-            };
-        });
-        renderTable();
-    } catch (err) {
-        console.error("Hiba a betöltéskor:", err);
-    }
-}
+const tableBody = document.getElementById('table-body');
+const saveBtn = document.getElementById('save-btn');
+const cancelBtn = document.getElementById('cancel-btn');
+const editIdInput = document.getElementById('edit-id');
 
 // 2. MEGJELENÍTÉS
 function renderTable() {
