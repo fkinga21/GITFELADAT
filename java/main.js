@@ -21,6 +21,7 @@ function megjelenit() {
     sutiAdatok.forEach(adat => {
         const row = `
             <tr>
+                <td>${adat.id}</td>
                 <td>${adat.sutiid}</td>
                 <td style="font-weight: bold;">${adat.ertek} Ft</td>
                 <td>${adat.egyseg}</td>
