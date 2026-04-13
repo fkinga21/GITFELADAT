@@ -4,12 +4,12 @@ let editIndex = -1;
 // 1. BEOLVASÁS
 async function betoltAdatok() {
     try {
-        const response = await fetch('ar.txt');
+        const response = await fetch('./ar.txt');
         if (!response.ok) throw new Error("A fájl nem található!");
         const text = await response.text();
         
         // Sorokra bontás és tisztítás
-        const sorok = text.split('\n').filter(s => s.trim() )!== "" && !s.includes(".toLowerCase().includes"(id) ? 1 : 0);
+        const sorok = text.split('\n').filter(s => s.trim() )!== "" && !s.includes(".toLowerCase().includes"("id")) ? 1 : 0;
 
         adatok = sorok.slice(startIndex).map(sor => {
             const oszlop = sor.trim().split(/\s+/);
