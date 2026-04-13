@@ -1,4 +1,3 @@
-// 1. Adatok betöltése a tömbbe (Az ar.txt forrásai alapján)
 let priceData = [
     { id: 1, sutiid: 32, ertek: 500, egyseg: "db" },
     { id: 2, sutiid: 76, ertek: 10900, egyseg: "16 szeletes" },
@@ -14,91 +13,88 @@ const saveBtn = document.getElementById('save-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const editIdInput = document.getElementById('edit-id');
 
-// 2. READ: Táblázat kirajzolása
+ <div style={{ textAlign: 'left', marginBottom: '20px' }}>
+            <a href="../index.html" className="btn-back">
+                ← Vissza a főoldalra
+            </a>
+        </div>
+
+// 2. MEGJELENÍTÉS
 function renderTable() {
-    tableBody.innerHTML = '';
-    priceData.forEach(item => {
-        const row = `
-            <tr>
-                <td>${item.id}</td>
-                <td>${item.sutiid}</td>
-                <td>${item.ertek} Ft</td>
-                <td>${item.egyseg}</td>
-                <td>
-                    <button class="btn-edit" onclick="editItem(${item.id})">Szerkeszt</button>
-                    <button class="btn-delete" onclick="deleteItem(${item.id})">Töröl</button>
-                </td>
-            </tr>
-        `;
+    const tableBody = document.querySelector("#sutikelist tbody");
+    if (!tableBody) return;
+    tableBody.innerHTML = ""; 
+
+    adatok.forEach((item, index) => {
+        const row = `<tr>
+            <td>${item.arid}</td>
+            <td>${item.id}</td>
+            <td>${item.ar}</td>
+            <td>${item.egyseg}</td>
+            <td>
+                <button type="button" class="btn-edit" onclick="onEdit(${index})">Módosítás</button>
+                <button type="button" class="btn-delete" onclick="onDelete(${index})">Törlés</button>
+            </td>
+        </tr>`;
         tableBody.innerHTML += row;
     });
 }
 
-// 3. CREATE & UPDATE: Mentés gépelés után
-saveBtn.addEventListener('click', () => {
-    const sutiid = parseInt(document.getElementById('sutiid').value);
-    const ertek = parseInt(document.getElementById('ertek').value);
-    const egyseg = document.getElementById('egyseg').value;
-    const editId = editIdInput.value;
+// 3. MÓDOSÍTÁS GOMB (Adatok betöltése)
+function onEdit(index) {
+    editIndex = index; 
+    const kijeloltSuti = adatok[index];
 
-    if (!sutiid || !ertek || !egyseg) {
-        alert("Kérlek tölts ki minden mezőt!");
+    // Figyelj: kijeloltSuti-t kell írni mindenhol!
+    document.getElementById("arid").value = kijeloltSuti.arid;
+    document.getElementById("id").value = kijeloltSuti.id;
+    document.getElementById("ar").value = kijeloltSuti.ar;
+    document.getElementById("egyseg").value = kijeloltSuti.egyseg;
+
+    document.querySelector(".form-action-buttons input").value = "Módosítás mentése";
+}
+
+// 4. MENTÉS (Új vagy Frissítés)
+function onFormSubmit() {
+    const formData = {
+        arid: document.getElementById("arid").value,
+        id: document.getElementById("id").value,
+        ar: document.getElementById("ar").value,
+        egyseg: document.getElementById("egyseg").value
+    };
+
+    if (formData.arid === "") {
+        alert("Az ÁrID kötelező!");
         return;
     }
 
-    if (editId) {
-        // UPDATE (Szerkesztés)
-        const index = priceData.findIndex(p => p.id == editId);
-        priceData[index] = { id: parseInt(editId), sutiid, ertek, egyseg };
-        resetForm();
+    if (editIndex === -1) {
+        adatok.push(formData); // Új hozzáadása
     } else {
-        // CREATE (Új felvétel)
-        const newId = priceData.length > 0 ? Math.max(...priceData.map(p => p.id)) + 1 : 1;
-        priceData.push({ id: newId, sutiid, ertek, egyseg });
+        adatok[editIndex] = formData; // Meglévő frissítése
+        editIndex = -1;
+        const submitBtn = document.querySelector(".form-action-buttons input[type='submit']");
+        if (submitBtn) submitBtn.value = "Submit";
     }
 
     renderTable();
-    clearInputs();
-});
+    resetForm();
+}
 
-// 4. DELETE: Törlés a tömbből
-function deleteItem(id) {
-    if (confirm("Biztosan törölni szeretnéd?")) {
-        priceData = priceData.filter(item => item.id !== id);
+function resetForm() {
+    document.getElementById("arid").value = "";
+    document.getElementById("id").value = "";
+    document.getElementById("ar").value = "";
+    document.getElementById("egyseg").value = "";
+    editIndex = -1;
+}
+
+function onDelete(index) {
+    if (confirm('Biztosan törölni akarod?')) {
+        adatok.splice(index, 1);
         renderTable();
     }
 }
 
-// 5. EDIT: Adatok betöltése az űrlapba
-function editItem(id) {
-    const item = priceData.find(p => p.id === id);
-    document.getElementById('sutiid').value = item.sutiid;
-    document.getElementById('ertek').value = item.ertek;
-    document.getElementById('egyseg').value = item.egyseg;
-    editIdInput.value = item.id;
-    
-    saveBtn.innerText = "Módosítás mentése";
-    saveBtn.style.backgroundColor = "#ffc107";
-    cancelBtn.style.display = "inline";
-}
-
-// Segédfüggvények
-function clearInputs() {
-    document.getElementById('sutiid').value = '';
-    document.getElementById('ertek').value = '';
-    document.getElementById('egyseg').value = '';
-}
-
-function resetForm() {
-    editIdInput.value = '';
-    saveBtn.innerText = "Hozzáadás";
-    saveBtn.style.backgroundColor = "#28a745";
-    cancelBtn.style.display = "none";
-    clearInputs();
-}
-
-cancelBtn.addEventListener('click', resetForm);
-
-// Első betöltés
-renderTable();
-<button onclick="location.href='index.html'" class="btn-back">Vissza a főoldalra</button>
+// Indítás
+betoltAdatok();
