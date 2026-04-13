@@ -1,100 +1,86 @@
-let priceData = [
+
+let sutiAdatok = [
     { id: 1, sutiid: 32, ertek: 500, egyseg: "db" },
     { id: 2, sutiid: 76, ertek: 10900, egyseg: "16 szeletes" },
     { id: 3, sutiid: 106, ertek: 4300, egyseg: "8 szeletes" },
     { id: 4, sutiid: 88, ertek: 300, egyseg: "db" },
     { id: 5, sutiid: 116, ertek: 16200, egyseg: "24 szeletes" },
-    // ... ide jöhet a többi adat is az ar.txt-ből
-    { id: 208, sutiid: 89, ertek: 4700, egyseg: "8 szeletes" }
+    { id: 6, sutiid: 135, ertek: 250, egyseg: "db" },
+    { id: 7, sutiid: 127, ertek: 4400, egyseg: "kg" },
+    { id: 8, sutiid: 50, ertek: 13400, egyseg: "24 szeletes" },
+    { id: 9, sutiid: 70, ertek: 700, egyseg: "db" },
+    { id: 10, sutiid: 31, ertek: 5200, egyseg: "kg" },
+    { id: 172, sutiid: 43, ertek: 4200, egyseg: "kg" },
+    { id: 208, sutiid: 53, ertek: 4200, egyseg: "kg" }
 ];
 
-const tableBody = document.getElementById('table-body');
-const saveBtn = document.getElementById('save-btn');
-const cancelBtn = document.getElementById('cancel-btn');
-const editIdInput = document.getElementById('edit-id');
+function megjelenit() {
+    const tableBody = document.getElementById('adat-tablazat');
+    tableBody.innerHTML = '';
 
- <div style={{ textAlign: 'left', marginBottom: '20px' }}>
-            <a href="../index.html" className="btn-back">
-                ← Vissza a főoldalra
-            </a>
-        </div>
-
-// 2. MEGJELENÍTÉS
-function renderTable() {
-    const tableBody = document.querySelector("#sutikelist tbody");
-    if (!tableBody) return;
-    tableBody.innerHTML = ""; 
-
-    adatok.forEach((item, index) => {
-        const row = `<tr>
-            <td>${item.arid}</td>
-            <td>${item.id}</td>
-            <td>${item.ar}</td>
-            <td>${item.egyseg}</td>
-            <td>
-                <button type="button" class="btn-edit" onclick="onEdit(${index})">Módosítás</button>
-                <button type="button" class="btn-delete" onclick="onDelete(${index})">Törlés</button>
-            </td>
-        </tr>`;
+    sutiAdatok.forEach(adat => {
+        const row = `
+            <tr>
+                <td>${adat.sutiid}</td>
+                <td style="font-weight: bold;">${adat.ertek} Ft</td>
+                <td>${adat.egyseg}</td>
+                <td>
+                    <button class="btn-edit" onclick="szerkesztesBetolt(${adat.id})">Szerkeszt</button>
+                    <button class="btn-delete" onclick="torles(${adat.id})">Töröl</button>
+                </td>
+            </tr>
+        `;
         tableBody.innerHTML += row;
     });
 }
 
-// 3. MÓDOSÍTÁS GOMB (Adatok betöltése)
-function onEdit(index) {
-    editIndex = index; 
-    const kijeloltSuti = adatok[index];
+function mentes() {
+    const editId = document.getElementById('edit-id').value;
+    const sutiid = document.getElementById('sutiid').value;
+    const ertek = document.getElementById('ertek').value;
+    const egyseg = document.getElementById('egyseg').value;
 
-    // Figyelj: kijeloltSuti-t kell írni mindenhol!
-    document.getElementById("arid").value = kijeloltSuti.arid;
-    document.getElementById("id").value = kijeloltSuti.id;
-    document.getElementById("ar").value = kijeloltSuti.ar;
-    document.getElementById("egyseg").value = kijeloltSuti.egyseg;
+    if (!sutiid || !ertek || !egyseg) return alert("Tölts ki minden mezőt!");
 
-    document.querySelector(".form-action-buttons input").value = "Módosítás mentése";
-}
-
-// 4. MENTÉS (Új vagy Frissítés)
-function onFormSubmit() {
-    const formData = {
-        arid: document.getElementById("arid").value,
-        id: document.getElementById("id").value,
-        ar: document.getElementById("ar").value,
-        egyseg: document.getElementById("egyseg").value
-    };
-
-    if (formData.arid === "") {
-        alert("Az ÁrID kötelező!");
-        return;
-    }
-
-    if (editIndex === -1) {
-        adatok.push(formData); // Új hozzáadása
+    if (editId) {
+        // Módosítás
+        const index = sutiAdatok.findIndex(a => a.id == editId);
+        sutiAdatok[index] = { id: parseInt(editId), sutiid, ertek, egyseg };
     } else {
-        adatok[editIndex] = formData; // Meglévő frissítése
-        editIndex = -1;
-        const submitBtn = document.querySelector(".form-action-buttons input[type='submit']");
-        if (submitBtn) submitBtn.value = "Submit";
+        // Új hozzáadása
+        const ujId = sutiAdatok.length > 0 ? Math.max(...sutiAdatok.map(a => a.id)) + 1 : 1;
+        sutiAdatok.push({ id: ujId, sutiid, ertek, egyseg });
     }
 
-    renderTable();
-    resetForm();
+    urlapAlaphelyzet();
+    megjelenit();
 }
 
-function resetForm() {
-    document.getElementById("arid").value = "";
-    document.getElementById("id").value = "";
-    document.getElementById("ar").value = "";
-    document.getElementById("egyseg").value = "";
-    editIndex = -1;
-}
-
-function onDelete(index) {
-    if (confirm('Biztosan törölni akarod?')) {
-        adatok.splice(index, 1);
-        renderTable();
+function torles(id) {
+    if (confirm("Biztosan törlöd?")) {
+        sutiAdatok = sutiAdatok.filter(adat => adat.id !== id);
+        megjelenit();
     }
 }
 
-// Indítás
-betoltAdatok();
+function szerkesztesBetolt(id) {
+    const adat = sutiAdatok.find(a => a.id === id);
+    document.getElementById('edit-id').value = adat.id;
+    document.getElementById('sutiid').value = adat.sutiid;
+    document.getElementById('ertek').value = adat.ertek;
+    document.getElementById('egyseg').value = adat.egyseg;
+    
+    document.getElementById('main-button').innerText = "Módosítás mentése";
+    document.getElementById('main-button').style.backgroundColor = "#9c27b0";
+}
+
+function urlapAlaphelyzet() {
+    document.getElementById('edit-id').value = '';
+    document.getElementById('sutiid').value = '';
+    document.getElementById('ertek').value = '';
+    document.getElementById('egyseg').value = '';
+    document.getElementById('main-button').innerText = "Hozzáadás";
+    document.getElementById('main-button').style.backgroundColor = "#e082e0";
+}
+
+window.onload = megjelenit;

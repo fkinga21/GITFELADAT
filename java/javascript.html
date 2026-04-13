@@ -1,64 +1,52 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <title> 
-     Új Sütike  
- 
-    </title> 
-    <link rel="stylesheet" href="style.css"> 
-</head> 
-<body> 
-    <h1>Új Sütike ÁR CRUD </h1> 
-    <hr> 
-    <div class="sutike-form"> 
-        <form onsubmit="event.preventDefault();onFormSubmit();"> 
-            <div> 
-   
-                <label>Sütike ÁrID*</label><label class="validation-error hide" 
-                  id="fullNameValidationError">EZ A MEZŐ KÖTELEZŐ.</label> 
-                <input type="text" name="arid" id="arid"> 
-            </div> 
-            <div> 
-                <label>Sütike ID</label> 
-                <input type="text" name="id" id="id"> 
-            </div> 
-            <div> 
-                <label>Sütike Ára</label> 
-                <input type="text" name="ar" id="ar"> 
-            </div> 
-            <div> 
-                <label>Sütike Egység (pl. db, szelet)</label> 
-                <input type="text" name="egyseg" id="egyseg"> 
-            </div> 
-            <div  class="form-action-buttons"> 
-                <input type="submit" value="Hozzáad"> 
-            </div> 
-        </form> 
-    </div> 
-    <br/> 
-    <div class = "sutike-table"> 
-            <table class="list" id="sutikelist"> 
-                <thead> 
-                    
-                    <tr> 
-                        <th>Sütike Ár ID</th> 
-                        <th>Sütike ID</th> 
-                        <th>Sütike Ára</th> 
-                        <th>Sütike Egység </th> 
-                        <th>Műveletek</th> </tr>
-                    </tr> 
-                    <span class="options">
-                    <i class="fas fa-edit"></i>
-                    <i class="fas fa-trash-alt"></i>
-                </span>
-                </thead> 
-                <tbody> 
- 
-                </tbody> 
-            </table> 
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sütemény Árlista - CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-nav">
+        <a href="index.html" class="back-button">← Vissza a főoldalra</a>
+    </div>
+    
+    <div class="container">
+        <h1>🍰 Sütemény Árak Kezelése</h1>
 
- 
-    </div> 
-    <script src="main.js"></script> 
-</body> 
-</html> 
+       <div class="form-card">
+            <div class="input-group">
+                <label for="sutiid">Sütemény ID</label>
+                <input type="number" id="sutiid" placeholder="Sütemény ID">
+            </div>
+            <div class="input-group">
+                <label for="ertek">Érték (Ár)</label>
+                <input type="number" id="ertek" placeholder="Ár megadása">
+            </div>
+            <div class="input-group">
+                <label for="egyseg">Egység (Típus)</label>
+                <input type="text" id="egyseg" placeholder="Típus (pl. 16 szeletes, db)">
+            </div>
+            <input type="hidden" id="edit-id">
+            <button id="main-button" onclick="mentes()">Hozzáadás</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Süti ID</th>
+                        <th>Ár</th>
+                        <th>Egység</th>
+                        <th>Műveletek</th>
+                    </tr>
+                </thead>
+                <tbody id="adat-tablazat">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
