@@ -59,17 +59,24 @@ function KinalatKezelo() {
     );
 }
 
+
 // FŐ SPA ALKALMAZÁS
 export default function App() {
     const [tab, setTab] = useState('home');
 
     return (
+
+
         <div className="spa-wrapper">
             <nav className="main-nav">
                 <button className={tab === 'calc' ? 'active' : ''} onClick={() => setTab('calc')}>Árkalkulátor</button>
                 <button className={tab === 'list' ? 'active' : ''} onClick={() => setTab('list')}>Napi Kínálat</button>
             </nav>
-
+<       div>
+        <ArKalkulator />
+         <hr /> 
+         <KinalatKezelo />
+            </div>
             <main className="spa-content">
                 {tab === 'home' && (
                     <div className="welcome">
