@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// 1. KOMPONENS: Sütemény Rendelés Kalkulátor (Hasonló a Calculator-hoz)
 function ArKalkulator() {
     const [ar, setAr] = useState(0);
     const [db, setDb] = useState(1);
@@ -24,7 +23,7 @@ function ArKalkulator() {
     );
 }
 
-// 2. KOMPONENS: Napi Kínálat Pipáló (Hasonló nehézség, mint a Tic-Tac-Toe állapotkezelése)
+
 function KinalatKezelo() {
     const [list, setList] = useState([
         { id: 1, nev: 'Süni', kész: true },
