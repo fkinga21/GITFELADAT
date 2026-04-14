@@ -6,7 +6,7 @@ function ArKalkulator() {
 
     return (
         <div className="app-card">
-            <h3>💰 Sütemény Árkalkulátor</h3>
+            <h3>Sutemeny Arkalkulator</h3>
             <div className="input-field">
                 <label>Egységár (Ft):</label>
                 <input type="number" value={ar} onChange={(e) => setAr(Number(e.target.value))} />
