@@ -13,18 +13,17 @@ body {
     text-align: center;
 }
 
-/* Főcím stílusa a kép alapján */
+
 h1 {
-    color: #ae30a4; /* Sötétlila */
+    color: #ae30a4; 
     font-size: 2.5em;
     font-weight: bold;
     margin-top: 40px;
     margin-bottom: 50px;
 }
 
-/* Űrlap dobozának stílusa */
 .form-box {
-    border: 1px solid #d1a7a7; /* Enyhén pirosas keret */
+    border: 1px solid #d1a7a7; 
     border-radius: 8px;
     padding: 30px;
     background-color: white;
@@ -36,7 +35,6 @@ h1 {
     text-align: left;
 }
 
-/* Űrlap beviteli mezők */
 .suti-form {
     display: flex;
     flex-direction: column;
@@ -66,10 +64,10 @@ h1 {
     border-color: #d1a7a7;
 }
 
-/* Lila gomb stílusa */
+
 .btn-primary {
     padding: 12px 24px;
-    background-color: #db76e3; /* Lila szín a képről */
+    background-color: #db76e3; 
     color: white;
     border: none;
     border-radius: 6px;
@@ -93,14 +91,14 @@ h1 {
     width: 20%;
 }
 
-/* Táblázat stílusa */
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
 }
 
-/* Halványlila fejléc */
+
 th {
     background-color: #e6e0f3;
     color: #475569;
@@ -119,7 +117,6 @@ tr:hover {
     background-color: #f8fafc;
 }
 
-/* Gombok a táblázatban */
 .actions {
     display: flex;
     gap: 8px;
@@ -144,11 +141,11 @@ tr:hover {
     cursor: pointer;
 }
 
-/* Vissza gomb stílusa */
+
 .btn-back {
     display: inline-block;
     text-decoration: none;
-    color: #ae30a4; /* A fejléc lila színe */
+    color: #ae30a4; 
     font-weight: bold;
     padding: 8px 15px;
     border: 1px solid #ae30a4;

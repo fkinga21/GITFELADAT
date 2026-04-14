@@ -94,7 +94,6 @@ function App() {
                         />
                     </div>
                     
-                    {/* Lila gomb */}
                     <button type="submit" className="btn-primary">
                         {isEditing ? 'Frissítés' : 'Hozzáadás'}
                     </button>
@@ -107,7 +106,7 @@ function App() {
                 </form>
             </div>
 
-            {/* Táblázat halványlila fejléccel */}
+            
             <table>
                 <thead>
                     <tr>
