@@ -72,11 +72,21 @@ export default function App() {
                 <button className={tab === 'calc' ? 'active' : ''} onClick={() => setTab('calc')}>Árkalkulátor</button>
                 <button className={tab === 'list' ? 'active' : ''} onClick={() => setTab('list')}>Napi Kínálat</button>
             </nav>
-<       div>
-        <ArKalkulator />
-         <hr /> 
-         <KinalatKezelo />
-            </div>
+
+            <div className="main-container">
+            <h1>Cukrászda Digitális Asszisztens</h1>
+            
+            <section className="calculator-section">
+                <ArKalkulator />
+            </section>
+            
+            <hr /> {/* Választóvonal a két app között */}
+            
+            <section className="inventory-section">
+                <KinalatKezelo />
+            </section>
+        </div>
+        
             <main className="spa-content">
                 {tab === 'home' && (
                     <div className="welcome">
@@ -90,3 +100,5 @@ export default function App() {
         </div>
     );
 }
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
