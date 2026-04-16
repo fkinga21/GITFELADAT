@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Kalkulator from './components/Kalkulator';
 import SutiJatek from './components/SutiJatek';
 
