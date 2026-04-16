@@ -1,7 +1,7 @@
 <?php
 header("Content-Type: application/json");
 include 'db_config.php';
-
+mysqli_set_charset($conn, "utf8");
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch($method) {
