@@ -1,6 +1,5 @@
 const { useState } = React;
 
-
 // Adatok betöltése a forrásfájl alapján (példák)
 const initialSutik = [
     { id: 1, nev: "Süni", tipus: "vegyes", dijazott: 0 },
@@ -9,9 +8,6 @@ const initialSutik = [
     { id: 66, nev: "Franciakrémes", tipus: "krémes", dijazott: 0 },
     { id: 139, nev: "Mákos guba", tipus: "torta", dijazott: 0 }
 ];
-
-
-
 
 function App() {
     const [sutik, setSutik] = useState(initialSutik);
@@ -59,7 +55,7 @@ function App() {
             </a>
         </nav>
 
-            <h1>🍰 Sütemény Adminisztráció</h1>
+            <h1>🍰 Sütemény Nyilvántartás</h1>
 
             <div className="form-box">
                 <form className="suti-form" onSubmit={saveSuti}>
@@ -107,7 +103,7 @@ function App() {
             </div>
 
             
-            <table>
+            <table class="data-table">
                 <thead>
                     <tr>
                         <th>Sütemény ID</th>
