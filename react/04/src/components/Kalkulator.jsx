@@ -1,16 +1,33 @@
 import { useState } from 'react';
+import './SutiJatek.css'; 
 
-export default function Kalkulator() {
-  const [db, setDb] = useState(0);
-  const ar = 850; // Egy szelet torta ára
+export default function SutiSzamlalo() {
+  const [sutik, setSutik] = useState([
+    { id: 1, nev: 'Dobostorta', ar: 850, db: 0 },
+    { id: 2, nev: 'Eszterházy torta', ar: 950, db: 0 },
+    { id: 3, nev: 'Macaron', ar: 450, db: 0 }
+  ]);
+
+
+  const modositMennyiseget = (id, delta) => {
+    setSutik(sutik.map(suti => 
+      suti.id === id ? { ...suti, db: Math.max(0, suti.db + delta) } : suti
+    ));
+  };
 
   return (
-    <div style={{ padding: '15px', border: '1px solid #ddd', borderRadius: '8px' }}>
-      <h2>Torta Rendelés</h2>
-      <p>Dobostorta szelet ára: **{ar} Ft**</p>
-      <button onClick={() => setDb(db + 1)}> + Hozzáad </button>
-      <button onClick={() => setDb(Math.max(0, db - 1))}> - Elvesz </button>
-      <h3>Összesen: {db} szelet = **{db * ar} Ft**</h3>
+    <div className="jatek-terulet">
+      <h2>Választható Sütemények</h2>
+      {sutik.map(suti => (
+        <div key={suti.id} style={{ margin: '10px 0', borderBottom: '1px solid #ccc' }}>
+          <span>{suti.nev} - {suti.ar} Ft/db</span>
+          <br />
+          <button className="mini-gomb" onClick={() => modositMennyiseget(suti.id, 1)}>+</button>
+          <span> {suti.db} db </span>
+          <button className="mini-gomb" onClick={() => modositMennyiseget(suti.id, -1)}>-</button>
+        </div>
+      ))}
+      <h3>Összesen: {sutik.reduce((sum, suti) => sum + (suti.db * suti.ar), 0)} Ft</h3>
     </div>
   );
 }
