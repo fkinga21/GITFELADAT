@@ -1,0 +1,154 @@
+h1 {
+  color: #ae30a4; 
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+body {
+    font-family: 'Segoe UI',Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#root {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.data-table thead {
+    background-color: #d1bce3; 
+    color: #4a148c;
+    font-weight: bold;
+}
+
+.data-table th, .data-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.tb input {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+
+.btn-add {
+     padding: 12px 24px;
+    background-color: #db76e3; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background 0.2s;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.btn-edit { 
+  background-color: #f1c40f; 
+  color: white; 
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-delete { 
+  background-color: #e74c3c; 
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-save { 
+  background-color: #76f124; 
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #444;
+}
+
+.suti-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.suti-form input {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.suti-form input:focus {
+    outline: none;
+    border-color: #d1a7a7;
+}
+
+.form-box {
+    border: 1px solid #d1a7a7; 
+    border-radius: 8px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    width: 75%;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 1.2rem;
+  }
+  
+  th, td {
+    padding: 8px;       
+    font-size: 14px;
+  }
+
+  button {
+    padding: 5px 10px;  
+  }
+}
