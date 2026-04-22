@@ -1,0 +1,143 @@
+body { 
+    font-family: sans-serif; 
+    background-color: #fcfcfc; 
+    padding: 20px; 
+}
+
+.container { 
+    max-width: 900px; 
+    margin: auto; 
+}
+
+.title {
+    color: #a349a4;       
+    text-align: center;   
+    width: 100%;          
+    margin-top: 20px;     
+    margin-bottom: 30px;
+}
+
+h1 {
+     text-align: center;   
+    width: 100%;         
+    color: #ae30a4; 
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.card { 
+    background: white; 
+    border: 1px solid #ffd1e9; 
+    padding: 20px; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 5px;
+}
+
+.form-group label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: -5px;
+    color: #444;
+}
+
+input { 
+    padding: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    margin-bottom: 10px;
+}
+
+.add-btn { 
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 20px auto 0;
+    background-color: #df80df;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Táblázat stílusa */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.data-table thead {
+    background-color: #d1bce3; 
+    color: #4a148c;
+    font-weight: bold;
+}
+
+.data-table th, .data-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* Reszponzivitás: ha mobil képernyő, a táblázat görgethető legyen */
+@media (max-width: 600px) {
+    .data-table { display: block; overflow-x: auto; }
+    .form-group { flex-direction: column; }
+}
+
+.top-nav {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.back-button {
+    text-decoration: none;
+    color: #a349a4;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: 1px solid #a349a4;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background-color: #a349a4;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #e0bd21; 
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete-btn {
+    background-color: #ef5350; 
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
