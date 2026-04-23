@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #fafafa;
+    background-color:#f4eaf5;
     color: #333;
     margin: 0;
     padding: 0;
@@ -12,31 +12,12 @@ body {
     justify-content: flex-start;
 }
 
-.back-button {
-    text-decoration: none;
-    color: #a349a4;
-    background-color: white;
-    padding: 8px 20px;
-    border-radius: 5px;
-    border: 1px solid #a349a4;
-    font-weight: bold;
-    font-size: 14px;
-    transition: all 0.3s;
-}
-
-.back-button:hover {
-    background-color: #a349a4;
-    color: white;
-}
 
 .container {
     width: 90%;
     max-width: 850px;
     margin: 0 auto;
 }
-
-
-
 .logo-title {
     display: flex;
     align-items: center;
@@ -60,7 +41,6 @@ h1 {
     margin-top: 40px;
     margin-bottom: 50px;
 }
-
 
 .form-card {
     background: white;
