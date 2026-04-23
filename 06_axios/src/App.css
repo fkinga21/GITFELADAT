@@ -9,18 +9,59 @@ h1 {
 
 body {
     font-family: 'Segoe UI',Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color:#f4eaf5;
     margin: 0;
     padding: 20px;
-    display: flex;
-    justify-content: center;
+    display: block;
 }
 
 #root {
     width: 100%;
     max-width: 1200px;
     text-align: center;
-    
+}
+
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #444;
+}
+
+.suti-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.suti-form input {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.suti-form input:focus {
+    outline: none;
+    border-color: #d1a7a7;
+}
+
+.form-box {
+    border: 1px solid #d1a7a7; 
+    border-radius: 8px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 60px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
 
 .data-table {
@@ -30,6 +71,10 @@ body {
     margin-top: 20px;
     border-radius: 8px;
     overflow: hidden;
+    margin: 20px auto ; 
+    display: table;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 .data-table thead {
     background-color: #d1bce3; 
@@ -96,48 +141,6 @@ body {
   cursor: pointer;
 }
 
-.form-group label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #444;
-}
-
-.suti-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.suti-form input {
-    padding: 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    font-size: 1em;
-}
-
-.suti-form input:focus {
-    outline: none;
-    border-color: #d1a7a7;
-}
-
-.form-box {
-    border: 1px solid #d1a7a7; 
-    border-radius: 8px;
-    padding: 30px;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    width: 75%;
-    max-width: 600px;
-    margin: 40px auto;
-    text-align: left;
-}
-
-
 @media (max-width: 600px) {
   h2 {
     font-size: 1.2rem;
@@ -152,3 +155,4 @@ body {
     padding: 5px 10px;  
   }
 }
+
