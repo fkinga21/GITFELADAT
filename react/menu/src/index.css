@@ -48,7 +48,7 @@
 }
 
 body {
-  background-color: #fafafa;; 
+  background-color:#f4eaf5;
   color: #ae30a4;
   font-family: Arial, sans-serif;
 }
@@ -116,21 +116,4 @@ code {
     padding: 20px;
     display: flex;
     justify-content: flex-start;
-}
-
-.back-button {
-    text-decoration: none;
-    color: #a349a4;
-    background-color: white;
-    padding: 8px 20px;
-    border-radius: 5px;
-    border: 1px solid #a349a4;
-    font-weight: bold;
-    font-size: 14px;
-    transition: all 0.3s;
-}
-
-.back-button:hover {
-    background-color: #a349a4;
-    color: white;
 }

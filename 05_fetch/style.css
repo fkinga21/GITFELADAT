@@ -1,6 +1,6 @@
 body { 
+    background-color:#f4eaf5;
     font-family: sans-serif; 
-    background-color: #fcfcfc; 
     padding: 20px; 
 }
 
@@ -10,7 +10,7 @@ body {
 }
 
 .title {
-    color: #a349a4;       
+    color: #ae30a4;      
     text-align: center;   
     width: 100%;          
     margin-top: 20px;     
@@ -18,9 +18,8 @@ body {
 }
 
 h1 {
-     text-align: center;   
+    text-align: center;   
     width: 100%;         
-    color: #ae30a4; 
     font-size: 2.5em;
     font-weight: bold;
     margin-top: 40px;

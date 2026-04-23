@@ -8,6 +8,8 @@ h1{
     color:rgb(164, 36, 168);
     padding:25px;
     text-align: center;
+    font-size: 2.5em;    
+    font-weight: bold;
     font-family:Arial, sans-serif;
 }
 
@@ -81,4 +83,19 @@ footer{
     border-radius: 8px;
     font-weight: bold;
     font-family: 'Segoe UI',Arial, sans-serif;
+}
+
+/* Közös kártya stílus */
+.suti-card { 
+    border: 2px solid #5d2e46; 
+    padding: 15px; 
+    border-radius: 10px; 
+    width: 200px; 
+    background: #fff; 
+}
+
+/* Kiemelt stílus (csak a különbségek) */
+.dijazott { 
+    border-color: gold; 
+    box-shadow: 0 0 10px gold; 
 }

@@ -49,12 +49,6 @@ function App() {
     return (
         <div>
         
-        <nav style={{ textAlign: 'left', padding: '10px 0' }}>
-            <a href="../index.html" className="btn-back">
-                &larr; Vissza a főoldalra
-            </a>
-        </nav>
-
             <h1>🍰 Sütemény Nyilvántartás</h1>
 
             <div className="form-box">

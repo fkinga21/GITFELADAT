@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI',Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color:#f4eaf5;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -154,4 +154,32 @@ tr:hover {
     background-color: #ae30a4;
     color: white;
     box-shadow: 0 2px 8px rgba(174, 48, 164, 0.3);
+}
+
+.navbar a {
+  color:rgb(164, 36, 168);
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.3s;
+  font-family: 'Segoe UI',Arial, sans-serif;
+  align-items: center;
+}
+
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Az éppen aktív oldal kiemelése */
+.navbar a.active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar a:not(:last-child)::after {
+  content: "|";             
+  margin-left: 20px;        
+  color:rgb(164, 36, 168);
+  font-weight: normal;   
 }
