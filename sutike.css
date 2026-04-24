@@ -1,60 +1,60 @@
+/* Globális beállítások: az egész oldal alapértelmezett háttérszíne és margói */
 body{
-    background-color:#f4eaf5;
+    background-color:#f4eaf5; /* Világos lila háttér a cukrászda hangulathoz */
     margin:0;
     padding: 20px;
 }
-
+/* Főcím stílus: A tanár által kért H1-es címsor formázása */
 h1{
-    color:rgb(164, 36, 168);
+    color:rgb(164, 36, 168); /* Sötétlila szín a jobb olvashatóságért */
     padding:25px;
     text-align: center;
     font-size: 2.5em;    
     font-weight: bold;
     font-family:Arial, sans-serif;
 }
-
+/* Navigációs menü: Flexbox elrendezés a vízszintes menüsorhoz */
 .navbar{
-    background-color: #f09dd0; 
+    background-color: #f09dd0; /* Rózsaszín háttérszín a menünek */
     text-transform: capitalize;
     padding: 15px 0;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Árnyék a mélységérzetért */
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Reszponzivitás: több sorba törik, ha nem fér el */
     border-radius: 8px;
     gap: 20px;
 }
-
+/* Menüpontok linkjeinek stílusa és átmenetei */
 .navbar a {
   color:rgb(164, 36, 168);
   text-decoration: none;
   padding: 10px 20px;
   font-weight: bold;
   font-size: 16px;
-  transition: background 0.3s;
+  transition: background 0.3s; /* Finom animáció hover esetén */
   font-family: 'Segoe UI',Arial, sans-serif;
   align-items: center;
 }
-
+/* Interakció: Háttérszín változása, ha az egér a menüpont fölé ér */
 .navbar a:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
 }
-
-/* Az éppen aktív oldal kiemelése */
+/* Az éppen aktív oldal kiemelése a felhasználói élmény javítása érdekében */
 .navbar a.active {
   background-color: rgba(0, 0, 0, 0.1);
 }
-
+/* Menüpontok közötti elválasztó vonal (|) generálása CSS-sel */
 .navbar a:not(:last-child)::after {
   content: "|";             
   margin-left: 20px;        
   color:rgb(164, 36, 168);
   font-weight: normal;   
 }
-
+/* Tartalmi elhelyezés: Képek és egyéb elemek középre rendezése */
 aside{
     display: flex;
     justify-content: center;
@@ -62,12 +62,12 @@ aside{
     margin-top: 20px;
     
 }
-
+/* Képformázás: Kerekített sarkok és reszponzív szélesség */
 img {
     border-radius: 8px;
-    width: 50%;
+    width: 50%; /* A kép a rendelkezésre álló hely felét foglalja el */
 }
-
+/* Lábléc: Itt jelennek meg a készítők nevei és Neptun kódjai [cite: 23, 96] */
 footer{
     background-color: #f09dd0; 
     color: rgb(164, 36, 168);
@@ -84,8 +84,7 @@ footer{
     font-weight: bold;
     font-family: 'Segoe UI',Arial, sans-serif;
 }
-
-/* Közös kártya stílus */
+/* OOJS Kártyák: Az objektumorientált JavaScript által generált elemek stílusa [cite: 119] */
 .suti-card { 
     border: 2px solid #5d2e46; 
     padding: 15px; 
@@ -93,8 +92,7 @@ footer{
     width: 200px; 
     background: #fff; 
 }
-
-/* Kiemelt stílus (csak a különbségek) */
+/* Dinamikus kiemelés: Arany keret a díjazott sütemények kártyáihoz [cite: 7, 76] */
 .dijazott { 
     border-color: gold; 
     box-shadow: 0 0 10px gold; 
