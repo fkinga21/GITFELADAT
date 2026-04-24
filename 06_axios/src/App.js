@@ -3,17 +3,21 @@ import axios from 'axios';
 import './App.css';
 
 function App() {
+  // A szerverről letöltött termékek listája
   const [termekek, setTermekek] = useState([]);
+  // Az új süti felviteléhez használt üres objektum
   const [ujSuti, setUjSuti] = useState({ id: '', sutiid: '', ertek: '', egyseg: '' });
+  // Tárolja az éppen szerkesztés alatt álló sor adatait
   const [szerkesztettSuti, setSzerkesztettSuti] = useState(null);
 
   // READ
   const fetchData = () => {
+    // GET kérést küldünk a PHP API-nak
     axios.get('http://cukiweb1.nhely.hu/06_axios/api.php')
-      .then(res => setTermekek(res.data))
+      .then(res => setTermekek(res.data)) // A kapott adatokat beállítjuk a 'termekek' állapotba
       .catch(err => console.error(err));
   };
-
+  // Az oldal betöltésekor egyszer lefut az adatlekérés
   useEffect(() => { fetchData(); }, []);
 
   // CREATE
@@ -32,7 +36,7 @@ function App() {
     alert("Kérlek, töltsd ki legalább a Süti ID-t és az Árat!");
     return;
   }
-  
+  // POST kéréssel beküldjük az 'ujSuti' objektumot
   axios.post('http://cukiweb1.nhely.hu/06_axios/api/add_ar.php', ujSuti)
     .then(res => {
       // Itt nézzük meg, hogy a PHP mit küldött vissza
@@ -58,7 +62,7 @@ function App() {
   // Megerősítő ablak
   if (window.confirm("Biztosan törölni szeretnéd ezt a tételt?")) {
     axios.post('http://cukiweb1.nhely.hu/06_axios/api/delete_ar.php', { id: id })
-      .then(() => fetchData())
+      .then(() => fetchData()) // Törlés után frissítjük a listát
       .catch(err => console.error("Hiba a törlésnél:", err));
   }
 };
