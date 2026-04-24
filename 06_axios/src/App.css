@@ -1,3 +1,4 @@
+/* Főcím stílusa: lila szín, nagy méret és középre igazítás */
 h1 {
   color: #ae30a4; 
   font-size: 2.5em;
@@ -6,96 +7,96 @@ h1 {
   margin-bottom: 50px;
   text-align: center;
 }
-
+/* Az oldal alapbeállításai: világos lila háttér és alap betűtípus */
 body {
     font-family: 'Segoe UI',Arial, sans-serif;
     background-color:#f4eaf5;
     margin: 0;
     padding: 20px;
-    display: block;
+    display: block; /* Hagyományos blokk szintű elrendezés */
 }
-
+/* A fő tárolóelem (gyökér), amely összefogja a tartalmat */
 #root {
     width: 100%;
     max-width: 1200px;
     text-align: center;
 }
-
-
+/* Form feliratok (label) formázása */
 .form-group label {
   margin-bottom: 5px;
   font-weight: bold;
   color: #444;
 }
-
+/* Az űrlap elemeinek függőleges elrendezése és térközei */
 .suti-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
+/* Címke és beviteli mező együttes tárolója */
 .form-group {
     display: flex;
     flex-direction: column;
 }
-
+/* Az űrlapon belüli beviteli mezők stílusa */
 .suti-form input {
     padding: 12px;
     border: 1px solid #e0e0e0;
     border-radius: 6px;
     font-size: 1em;
 }
-
+/* Fókusz állapot: ha a felhasználó rákattint az inputba, a szegély színe megváltozik */
 .suti-form input:focus {
     outline: none;
     border-color: #d1a7a7;
 }
-
+/* Az űrlapot körbevevő fehér doboz (kártya) árnyékkal */
 .form-box {
     border: 1px solid #d1a7a7; 
     border-radius: 8px;
     padding: 30px;
     background-color: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Nagyon enyhe árnyék */
     margin-bottom: 60px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-    text-align: left;
+    text-align: left; /* A dobozon belüli szövegeket balra zárja */
 }
-
+/* --- TÁBLÁZAT FORMÁZÁSA --- */
 .data-table {
     width: 100%;
     border-collapse: collapse;
     background: white;
     margin-top: 20px;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden; /* A lekerekített sarkok érvényesítése miatt */
     margin: 20px auto ; 
     display: table;
     margin-left: auto !important;
     margin-right: auto !important;
 }
+/* Táblázat fejléce: lila háttér és sötétlila szöveg */
 .data-table thead {
     background-color: #d1bce3; 
     color: #4a148c;
     font-weight: bold;
 }
-
+/* Táblázat celláinak (fejléc és tartalom) térköze és igazítása */
 .data-table th, .data-table td {
     padding: 15px;
     text-align: center;
     border-bottom: 1px solid #eee;
 }
-
+/* Táblázaton belüli szerkesztő inputok (Inline edit) stílusa */
 .tb input {
   padding: 12px;
   border: 1px solid #e0e0e0;
   border-radius: 6px;
   font-size: 1em;
 }
-
-
+/* --- GOMBOK STÍLUSA --- */
+/* Fő hozzáadás gomb */
 .btn-add {
      padding: 12px 24px;
     background-color: #db76e3; 
@@ -111,7 +112,7 @@ body {
     margin-right: auto;
     display: block;
 }
-
+/* Szerkesztés gomb (Sárga) */
 .btn-edit { 
   background-color: #f1c40f; 
   color: white; 
@@ -121,7 +122,7 @@ body {
   margin-right: 5px;
   cursor: pointer;
 }
-
+/* Törlés gomb (Piros) */
 .btn-delete { 
   background-color: #e74c3c; 
   color: white;
@@ -130,7 +131,7 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
-
+/* Mentés gomb (Zöld) - szerkesztés utáni jóváhagyáshoz */
 .btn-save { 
   background-color: #76f124; 
   color: white;
@@ -140,19 +141,17 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
-
+/* --- MOBIL NÉZET (600px alatt) --- */
 @media (max-width: 600px) {
   h2 {
     font-size: 1.2rem;
   }
-  
+  /* Mobilon kisebbek a cellák és a szövegek, hogy elférjenek */
   th, td {
     padding: 8px;       
     font-size: 14px;
   }
-
   button {
     padding: 5px 10px;  
   }
 }
-
