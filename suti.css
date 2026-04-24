@@ -1,42 +1,43 @@
     /* MENÜ KINÉZETE*/
+/* Navigációs sáv: Fix elrendezésű, középre zárt menüsor lila/rózsaszín dizájnnal */
 .navbar{
     background-color: #f09dd0; 
     text-transform: capitalize;
     padding: 15px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Enyhe árnyék a kiemeléshez */
     margin: 10px;
     margin-bottom: 30px;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Reszponzivitás: mobilnézeten több sorba tördeli a menüpontokat */
     border-radius: 8px;
     gap: 20px;
     position: relative;
+    /* !important használata, hogy a Flexbox elrendezés minden környezetben érvényesüljön */
     display: flex !important;
     flex-direction: row !important;
 }
-
+/* Menüpontok (linkek) stílusa: Vastag, jól olvasható betűk */
 .navbar a {
   color:rgb(164, 36, 168) !important;
   text-decoration: none;
   padding: 10px 20px;
   font-weight: bold;
   font-size: 16px;
-  transition: background 0.3s;
+  transition: background 0.3s; /* Sima átmenet az egér ráhúzásakor */
   font-family: 'Segoe UI',Arial, sans-serif;
   align-items: center;
 }
-
+/* Interakció: Fehéres áttetsző háttér megjelenítése hover esetén */
 .navbar a:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
 }
-
-/* Az éppen aktív oldal kiemelése */
+/* Az éppen aktív aloldal vizuális visszajelzése a felhasználónak */
 .navbar a.active {
-  background-color: rgba(127, 27, 241, 0.5);
+  background-color: rgba(127, 27, 241, 0.5); /* Sötétebb lila kiemelés */
 }
-
+/* Elválasztó karakter (|) automatikus beszúrása a menüpontok közé, kivéve az utolsót */
 .navbar a:not(:last-child)::after {
   content: "|";             
   margin-left: 20px;        
@@ -44,7 +45,7 @@
   font-weight: normal;   
 }
  /*MINDEN OLDALON EGYSÉGES*/
-
+/* Az oldal globális stílusa: Egységes betűtípus és világos háttér */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: #f9f9f9;
@@ -52,22 +53,21 @@ body {
     padding: 20px;
     display: block !important;
 }
-
+/* React alkalmazás gyökéreleme: Középre igazított, maximum 1200px széles konténer */
 #root {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto !important; 
     text-align: center;
 }
-
-
+/* Az adatbeviteli űrlapok (Create/Update) doboza: Középre zárt, balra igazított szöveggel */
 .form-box {
     width: 60%;
     margin: 20px auto !important; 
     display: block !important;
     text-align: left; 
 }
-
+/* Az adatok megjelenítésére szolgáló táblázat egységes szélessége és elhelyezése */
 .data-table {
     width: 90%; 
     margin: 20px auto !important; 
