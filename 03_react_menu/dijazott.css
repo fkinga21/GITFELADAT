@@ -1,18 +1,19 @@
+/* Globális beállítások: az alapvető betűtípus és a rugalmas (flex) elrendezés */
 body {
     font-family: 'Segoe UI',Arial, sans-serif;
-    background-color:#f4eaf5;
+    background-color:#f4eaf5; /* Halvány lila háttér */
     margin: 0;
     padding: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Vízszintesen középre helyezi a teljes tartalmat */
 }
-
+/* A fő tároló, ami korlátozza az oldal szélességét */
 #root {
     width: 100%;
     max-width: 1200px;
     text-align: center;
 }
-
+/* Főcím stílusa */
 h1 {
     color: #ae30a4; 
     font-size: 2.5em;
@@ -20,7 +21,7 @@ h1 {
     margin-top: 40px;
     margin-bottom: 50px;
 }
-
+/* Az adatbeviteli mezőket tartalmazó doboz (kártya) */
 .form-box {
     border: 1px solid #d1a7a7; 
     border-radius: 8px;
@@ -31,39 +32,37 @@ h1 {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-    text-align: left;
+    text-align: left; /* A dobozon belül a szöveg balra zárt marad */
 }
-
+/* A form elemeinek függőleges elrendezése */
 .suti-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 15px; /* Távolság a beviteli mezők között */
 }
-
+/* Címke és beviteli mező párosa */
 .form-group {
     display: flex;
     flex-direction: column;
 }
-
 .form-group label {
     margin-bottom: 5px;
     font-weight: bold;
     color: #444;
 }
-
+/* Input mezők alapstílusa */
 .suti-form input {
     padding: 12px;
     border: 1px solid #e0e0e0;
     border-radius: 6px;
     font-size: 1em;
 }
-
+/* Amikor a felhasználó kattint az inputba (fókusz) */
 .suti-form input:focus {
     outline: none;
-    border-color: #d1a7a7;
+    border-color: #d1a7a7; /* Színváltozás a kijelölés jelzésére */
 }
-
-
+/* Fő akciógomb (Hozzáadás/Mentés) */
 .btn-primary {
     padding: 12px 24px;
     background-color: #db76e3; 
@@ -73,53 +72,52 @@ h1 {
     cursor: pointer;
     font-weight: bold;
     font-size: 1em;
-    transition: background 0.2s;
+    transition: background 0.2s; /* Finom átmenet az egér ráhúzásakor */
     width: 40%;
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
-
 .btn-primary:hover {
-    background-color: #ae30a4;
+    background-color: #ae30a4; /* Sötétebb szín hover esetén */
 }
-
+/* Mégse gomb egyedi stílusa */
 .btn-cancel {
-    background-color: #94a3b8 !important;
+    background-color: #94a3b8 !important; /* Szürke szín felülbírálása */
     margin-top: 10px;
     width: 20%;
 }
-
+/* Adattáblázat stílusa */
 .data-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* A cellaszegélyek összeolvadnak */
     background: white;
     margin-top: 20px;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden; /* Hogy a lekerekített sarok érvényesüljön a fejlécnél is */
 }
+/* Táblázat fejléce */
 .data-table thead {
     background-color: #d1bce3; 
     color: #4a148c;
     font-weight: bold;
 }
-
 .data-table th, .data-table td {
     padding: 15px;
     text-align: center;
     border-bottom: 1px solid #eee;
 }
-
+/* Sor kiemelése, ha az egeret fölé visszük */
 tr:hover {
     background-color: #f8fafc;
 }
-
+/* Műveleti gombok (szerkesztés/törlés) elrendezése */
 .actions {
     display: flex;
     gap: 8px;
     justify-content: center;
 }
-
+/* Szerkesztés gomb (sárga) */
 .btn-edit {
     background: #e0bd21;
     color: white;
@@ -128,7 +126,7 @@ tr:hover {
     border-radius: 4px;
     cursor: pointer;
 }
-
+/* Törlés gomb (piros) */
 .btn-delete {
     background: #ef4444;
     color: white;
@@ -137,8 +135,7 @@ tr:hover {
     border-radius: 4px;
     cursor: pointer;
 }
-
-
+/* Vissza gomb stílusa (keretes megoldás) */
 .btn-back {
     display: inline-block;
     text-decoration: none;
@@ -149,13 +146,12 @@ tr:hover {
     border-radius: 6px;
     transition: all 0.3s ease;
 }
-
 .btn-back:hover {
     background-color: #ae30a4;
     color: white;
     box-shadow: 0 2px 8px rgba(174, 48, 164, 0.3);
 }
-
+/* Navigációs sáv linkjei */
 .navbar a {
   color:rgb(164, 36, 168);
   text-decoration: none;
@@ -166,17 +162,15 @@ tr:hover {
   font-family: 'Segoe UI',Arial, sans-serif;
   align-items: center;
 }
-
 .navbar a:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
 }
-
 /* Az éppen aktív oldal kiemelése */
 .navbar a.active {
   background-color: rgba(0, 0, 0, 0.1);
 }
-
+/* Elválasztó vonal (|) hozzáadása a menüpontok közé, kivéve az utolsót */
 .navbar a:not(:last-child)::after {
   content: "|";             
   margin-left: 20px;        
