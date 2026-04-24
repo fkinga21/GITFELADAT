@@ -1,82 +1,83 @@
+/* Globális beállítások: az egész oldal alapstílusa */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color:#f4eaf5;
-    color: #333;
+    color: #333; /* Sötétszürke szövegszín a jobb olvashatóságért */
     margin: 0;
     padding: 0;
 }
-
+/* Navigációs sáv elrendezése */
 .top-nav {
     padding: 20px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Elemek balra rendezése */
 }
-
-
+/* Központi tartalom konténer: korlátozza a szélességet és középre zár */
 .container {
     width: 90%;
     max-width: 850px;
-    margin: 0 auto;
+    margin: 0 auto; /* Vízszintes középre igazítás */
 }
+/* Logó és cím közös elrendezése */
 .logo-title {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 15px;/* Logó és cím közös elrendezése */
 }
-
+/* Az emoji ikon díszítése */
 .logo-title .emoji {
     font-size: 40px;
     background: #f0f0f0;
     padding: 10px;
     border-radius: 10px;
 }
-
+/* Főcím stílusa */
 h1 {   
     text-align: center;   
     width: 100%;         
-    color: #ae30a4; 
+    color: #ae30a4; /* Sötétebb magenta/lila szín */
     font-size: 2.5em;
     font-weight: bold;
     margin-top: 40px;
     margin-bottom: 50px;
 }
-
+/* Az adatbeviteli űrlap "kártya" stílusa */
 .form-card {
     background: white;
     padding: 30px;
     border-radius: 10px;
     border: 1px solid #eee;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Enyhe árnyék a kiemeléshez */
     margin-bottom: 40px;
-    border: 1px solid #d1a7a7;
+    border: 1px solid #d1a7a7; /* Halvány rózsaszínes szegély */
 }
-
+/* Az egyes beviteli mezők csoportosítása */
 .input-group {
     margin-bottom: 15px;
 }
-
+/* Feliratok az inputok felett */
 .input-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     color: #444;
 }
-
+/* Szövegbeviteli mezők formázása */
 .input-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* A padding beleszámít a szélességbe */
 }
-
+/* A fő "Hozzáadás" gomb stílusa */
 #main-button {
     width: 100%;
     max-width: 300px;
     display: block;
-    margin: 20px auto 0;
-    background-color: #df80df;
+    margin: 20px auto 0; /* Középre helyezés */
+    background-color: #df80df; /* Világoslila gomb */
     color: white;
     border: none;
     padding: 12px;
@@ -85,37 +86,36 @@ h1 {
     font-weight: bold;
     cursor: pointer;
 }
-
-
+/* Táblázatot befoglaló doboz (görgethetővé teszi mobilon) */
 .table-container {
     background: #f3e5f5; 
     border-radius: 5px;
     padding: 1px;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: auto; /* Ha túl széles a táblázat, görgethető lesz */
     -webkit-overflow-scrolling: touch;
     border-radius: 8px;
 }
-
+/* A tényleges táblázat stílusa */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* A szegélyek ne legyenek duplák */
     background: white;
-    table-layout: fixed;
+    table-layout: fixed; /* Fix oszlopszélességek */
 }
-
+/* Táblázat fejléce */
 th {
-    background-color: #e1bee7;
-    color: #4a148c;
+    background-color: #e1bee7; /* Halványlila fejléc háttér */
+    color: #4a148c; /* Sötétlila betűszín */
     padding: 15px;
 }
-
+/* Táblázat cellái */
 td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #f0f0f0;
 }
-
+/* Szerkesztés gomb egyedi színe (sárgás/arany) */
 .btn-edit { 
     background-color: #e0bd21; 
     color: white; 
@@ -124,7 +124,7 @@ td {
     border-radius: 4px; 
     cursor: pointer; 
 }
-
+/* Törlés gomb egyedi színe (piros) */
 .btn-delete { 
     background-color: #ef5350; 
     color: white; 
