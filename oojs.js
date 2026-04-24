@@ -1,5 +1,7 @@
 // 1. Alap osztály (Class, Constructor, Metódusok)
+// A 'class' kulcsszóval definiáljuk a sütemények általános szerkezetét.
 class Suti {
+    // A constructor felelős az objektumpéldányok kezdeti adatainak beállításáért.
     constructor(id,nev, tipus, dijazott) {
         this.id = id;
         this.nev = nev;
@@ -10,28 +12,29 @@ class Suti {
     // Metódus az alap kártya létrehozására
     createCardElement() {
         const div = document.createElement("div");
-        div.className = "suti-card";
+        div.className = "suti-card"; // A CSS-ben definiált stílust rendeljük hozzá.
         return div;
     }
-
+    // Megjelenítésért felelős metódus.
     render() {
         const div = this.createCardElement();
+        // Dinamikus HTML tartalom generálása az objektum tulajdonságaiból.
         div.innerHTML = `<small>ID: ${this.id}</small><h3>${this.nev}</h3><p>Típus: ${this.tipus}</p>`;
+        // Az elem hozzáadása a konténerhez.
         document.getElementById("suti-container").appendChild(div);
     }
 }
-
 // 2. Örökölt osztály (Extends, Super)
+// Az 'extends' kulcsszóval öröklődést valósítunk meg: a KiemeltSuti mindent tud, amit a Suti.
 class KiemeltSuti extends Suti {
     constructor(id, nev, tipus, dijazott, dijMegnevezes) {
         super(id,nev, tipus, dijazott); // Super használata az alap osztályhoz
-        this.dijMegnevezes = dijMegnevezes;
+        this.dijMegnevezes = dijMegnevezes; // Egyedi tulajdonság a díjazott süteményeknek.
     }
-
-    // Metódus felülírása (Polimorfizmus)
+    // Metódus felülírása (Polimorfizmus): A díjazott süteményeket másképp jelenítjük meg.
     render(container) {
         const div = this.createCardElement();
-        div.classList.add("dijazott");
+        div.classList.add("dijazott"); // Speciális CSS osztály az arany kerethez.
         div.innerHTML = `<small>ID: ${this.id}</small><h3>${this.nev}</h3><p>Típus: ${this.tipus}</p><p>🏆 ${this.dijMegnevezes}</p>`;       
         document.getElementById("suti-container").appendChild(div);
     }
@@ -40,7 +43,6 @@ class KiemeltSuti extends Suti {
 const container = document.createElement("div");
 container.id = "suti-container";
 document.body.appendChild(container);
-
 // 3. Adatok (Az adatbázis táblázatából)
 const sutiAdatok = [
     { id: 1,nev: "Süni", tipus: "vegyes", dijazott: 0 },
@@ -67,11 +69,11 @@ const sutiAdatok = [
 // 4. Logika (Metódusok alkalmazása)
 sutiAdatok.forEach(adat => {
     if (adat.dijazott === -1) {
-        // KiemeltSuti példányosítása
+        // Ha díjazott, a KiemeltSuti osztályból hozunk létre új objektumot.
         const suti = new KiemeltSuti(adat.id, adat.nev, adat.tipus, adat.dijazott, "Díjazott");
         suti.render(container);
     } else {
-        // Suti példányosítása
+        // Ha nem díjazott, az alap Suti osztályból példányosítunk.
         const suti = new Suti(adat.id, adat.nev, adat.tipus, adat.dijazott);
         suti.render(container);
     }
